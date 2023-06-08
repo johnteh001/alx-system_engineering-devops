@@ -1,19 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-
-current_dir=$(pwd)
-parent_dir=$(dirname "$current_dir")
-
-# Loop through HTML files in the current directory
-for file in "$current_dir"/*.html; do
-    filename=$(basename "$file")
-    destination="$parent_dir/$filename"
-
-    # Check if file doesn't exist in parent directory or is newer
-    if [ ! -e "$destination" ] || [ "$file" -nt "$destination" ]; then
-        cp "$file" "$destination"
-        echo "Copied $filename to $destination"
-    else
-        echo "Skipping $filename, already exists in parent directory or is not newer"
-    fi
-done
+src_dir=$(pwd); dest_dir=$(dirname "$src_dir"); for file in "$src_dir"/*.html; do filename=$(basename "$file"); if [[ ! -e "$dest_dir/$filename" || "$file" -nt "$dest_dir/$filename" ]]; then cp "$file" "$dest_dir"; echo "Copied $filename to $dest_dir"; fi; done
