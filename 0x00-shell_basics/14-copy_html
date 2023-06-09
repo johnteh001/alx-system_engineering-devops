@@ -1,2 +1,3 @@
 #!/bin/bash
-src_dir=$(pwd); dest_dir=$(dirname "$src_dir"); for file in "$src_dir"/*.html; do filename=$(basename "$file"); if [[ ! -e "$dest_dir/$filename" || "$file" -nt "$dest_dir/$filename" ]]; then cp "$file" "$dest_dir"; echo "Copied $filename to $dest_dir"; fi; done
+parent_dir=$(dirname "$(pwd)")
+find . -maxdepth 1 -type f -name "*.html" -newer "$parent_dir" ! -exec cp -n {} "$parent_dir" \;
