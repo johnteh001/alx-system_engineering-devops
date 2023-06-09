@@ -1,0 +1,7 @@
+#!/bin/bash
+subdirs=$(find . -type d)
+for subdir in $subdirs; do
+    if [ -d "$subdir" ]; then
+        chmod a+x "$subdir"
+    fi
+done
