@@ -1,0 +1,9 @@
+#!/bin/bash
+# Read input from command line arguments or standard input
+if [ $# -gt 0 ]; then
+    input=$*
+else
+    read -r input
+fi
+# Remove 'c' and 'C' from the input using the tr command
+output=$(echo "$input" | tr -d 'cC')

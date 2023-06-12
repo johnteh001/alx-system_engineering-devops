@@ -1,0 +1,7 @@
+#!/bin/bash
+# Read the /etc/passwd file and extract the username and home directory
+users=$(awk -F: '{print $1 ":" $6}' /etc/passwd)
+# Sort the user entries by username
+sorted_users=$(echo "$users" | sort)
+# Print the sorted user entries
+$sorted_users
