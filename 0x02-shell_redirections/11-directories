@@ -1,11 +1,2 @@
 #!/bin/bash
-count_directories() {
-    local dir=$1
-    local count=0
-    for item in "$1"/*; do
-        if [[ -d "$item" && ! "$item" -ef "$1" ]]; then
-            ((count++))
-            count=$((count + $(count_directories "$item")))
-        fi
-    done
-    echo "$count"}
+find . -type d ! -path . - print | wc -1
