@@ -1,6 +1,2 @@
 #!/bin/bash
-iacta
-# Read the last line of the file
-last_line=$(tail -n 1 "$iacta")
-# Append the last line to the file
-$iacta >> iacta
+tail -n 1 < iacta >> iacta 
