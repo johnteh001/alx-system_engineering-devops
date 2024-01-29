@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that displays to infinity and message in case of SIGTERM 
+message1() {
+	echo "I hate the kill command"
+	rm /var/run/myscript.pid
+	exit
+}
+message2() {
+	echo "Y U no love me?!"
+}
+trap "rm /var/run/myscript.pid & exit" SIGQUIT
+trap message1 SIGTERM
+trap message2 SIGINT
+touch /var/run/myscript.pid
+echo "$$" > /var/run/myscript.pid
+while (true)
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
