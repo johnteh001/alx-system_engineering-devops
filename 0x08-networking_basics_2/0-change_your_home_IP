@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script that resolves localhost to 127.0.0.2 and facebook to 8.8.8.8
+grep -vwE "(localhost|facebook.com)" /etc/hosts > ~/hosts.n
+echo "8.8.8.8	facebook.com" >>  ~/hosts.n
+echo "127.0.0.2	localhost" >> ~/hosts.n
+sudo cp -f ~/hosts.n /etc/hosts
