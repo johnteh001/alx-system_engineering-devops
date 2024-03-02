@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Bash script shows the active IPv4 on the machine it's executed on
+hostname -I
