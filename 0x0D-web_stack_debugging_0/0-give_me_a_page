@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Getting apache2 to return the page containing message
+service apache2 start
