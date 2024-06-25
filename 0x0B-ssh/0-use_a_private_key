@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script uses ssh to connect to server 
+SERVER_HOST="ubuntu 54.89.195.68"
+
+# Connect to the server with SSH using the private key
+ssh -i ~/.ssh/school ubuntu@$SERVER_HOST
+
+exit
+

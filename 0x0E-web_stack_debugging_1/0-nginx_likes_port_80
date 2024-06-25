@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Debugging nginx installation to listen to port 80
+sudo sed -i "s/listen 8080 default_server;.*/listen 80 default_server;/" /etc/nginx/sites-enabled/default
+sudo sed -i "s/listen \[::\]:8080 default_server ipv6only=on;.*/listen \[::\]:80 default_server;/" /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default
+ls -sfn /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
